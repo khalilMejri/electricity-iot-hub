@@ -1,0 +1,26 @@
+version: "3.6"
+
+services:
+  smart-meter:
+    image: hub-worker
+    command:
+      ["python3", "SM.py", "1>", "smart-meter.log", "2>", "smart-meter.err"]
+    networks:
+      - iot-net
+    environment:
+      - ADAFRUIT_IO_KEY=<your_key_here>
+      - ADAFRUIT_IO_USERNAME=<your_username_here>
+
+  mdms:
+    image: hub-worker
+    command: ["python3", "MDMS.py", "1>", "mdms.log", "2>", "mdms.err"]
+    networks:
+      - iot-net
+    environment:
+      - ADAFRUIT_IO_KEY=<your_key_here>
+      - ADAFRUIT_IO_USERNAME=<your_username_here>
+
+networks:
+  iot-net:
+    name: iot-net
+    driver: bridge

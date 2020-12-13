@@ -45,12 +45,25 @@ Electricity IOT Hub
 |    3    |  MDMS  |     SM      |       price       |  1/60min  | MQTT_QOS_1 |
 |    4    |  MDMS  |     SM      | Voltage reduction |   1/min   | MQTT_QOS_0 |
 
+### Run on your system
+
 - Copy your Adafruit.IO **secret key** into `ADAFRUIT_IO_KEY` enironment variable under `.env` file.
 - Copy your Adafruit.IO **username** it into `ADAFRUIT_IO_USERNAME` enironment variable under `.env` file.
 - Install python +3.4.x on your system
 - Install following project [dependencies](#) using `pip`
 - Start your Smart Meter (SM) node simulator `python SM.py`
 - Start your Meter Data Management System node simulator `python MDMS.py`
+
+### Run on docker
+
+- Copy your Adafruit.IO **secret key** into **docker-compose.yaml** `ADAFRUIT_IO_KEY` enironment variable under `environment` label.
+- Copy your Adafruit.IO **username** it into **docker-compose.yaml** `ADAFRUIT_IO_USERNAME` enironment variable under `environment` label.
+- build main `hub-worker` docker image with docker build command: `docker build -t username/hub-worker:v1 .`
+- Run two containers **SM** and **MDMS** with docker-compose: `docker-compose -d up`
+- Observe log of your Smart Meter (SM) node simulator in `/iot-hub/smart-meter.log` & `/iot-hub/smart-meter.err`
+- Observe log of your Meter Data Management System node simulator in `/iot-hub/mdms.log` & `/iot-hub/mdms.err`
+
+## Visualize on Adafruit.IO
 
 - Go ahead and create your Dashboard with Adafruit.IO dashboard widgets
   ![img](#)
