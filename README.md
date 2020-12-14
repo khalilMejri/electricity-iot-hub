@@ -22,6 +22,8 @@ Electricity IOT Hub
 │   ├── ..
 │   └── Annotation_yyyy-mm-dd_xxxxx.png
 ├── .gitignore
+├── docker-compose.yaml
+├── Dockerfile
 ├── .env
 ├── SM.py
 ├── MDMS.py
