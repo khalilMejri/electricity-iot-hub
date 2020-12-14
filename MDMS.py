@@ -44,10 +44,10 @@ def connected(client):
     # calls against it easily.
     # Subscribe to changes on a feed, `feed_name`
     print('Listening for changes on feed > ', feed_consumption_id)
-    client.subscribe(feed_consumption_id)
+    client.subscribe(feed_consumption_id, None, qos=1)
     # Subscribe to changes on a feed, `feed_name`
     print('Listening for changes on feed > ', feed_production_id)
-    client.subscribe(feed_production_id)
+    client.subscribe(feed_production_id, None, qos=1)
 
 
 def subscribe(client, userdata, mid, granted_qos):
